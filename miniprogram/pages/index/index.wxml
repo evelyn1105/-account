@@ -1,0 +1,52 @@
+<!--pages/index/index.wxml-->
+<view id="headerHeight">
+  <view style="margin: {{marginTop}}; height: {{blockHeight}}" class="search-wrapper">
+    <image src="../../images/search.png" class="icon-s"></image>
+  </view>
+  <view class="top-wrapper" id="">
+    <view class="text-s" style="margin-bottom: 10rpx">本月支出</view>
+    <view class="line">
+      <view class="text-l">￥300.00</view>
+      <image src="../../images/visible.png" class="icon-s"></image>
+    </view>
+    <view class="line">
+      <view class="text-wrapper">
+        <view class="text-s">本月收入</view>
+        <view class="text-s" style="color: black; margin-left: 5rpx">￥300.00</view>
+      </view>
+      <view class="text-wrapper">
+        <view class="text-s">预算剩余</view>
+        <view class="text-s" style="color: black; margin-left: 5rpx">￥300.00</view>
+      </view>
+    </view>
+    <view class="chart-tips">
+      <image src="../../images/chart.png" class="icon-s"></image>
+      <view class="text-s" style="color: grey; margin-left: 10rpx">查看图表分析</view>
+    </view>
+  </view>
+  <view class="btn-wrapper" style="padding: 0rpx 20rpx 20rpx;">
+    <view class="text-wrapper text-s">
+      <view>今日支出￥5.0</view>
+      <view style="margin-left: 10rpx">收入￥5.0</view>
+    </view>
+    <view class="text-wrapper">
+      <image src="../../images/record.png" class="icon-xxs" style="margin-right:10rpx" bindtap="pageJump" id="record"></image>
+      <image src="../../images/more.png" class="icon-xs"></image>
+    </view>
+  </view>
+</view>
+<scroll-view scroll-y="true" style="height: {{scrollHeight}}">
+  <view class="account-list" wx:for="12345678123" wx:key="item">
+    <image src="../../images/icon/ic_qita_fs.png" class="icon-m" style="margin: 0 15rpx"></image>
+    <view style="width: 85%">
+      <view class="line-2 text-m">
+        <view>其他</view>
+        <view>￥200</view>
+      </view>
+      <view class="line-2 text-s">
+        <view>其他</view>
+        <view>今天 16：20</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

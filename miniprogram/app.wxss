@@ -1,0 +1,47 @@
+/**app.wxss**/
+page {
+  background: #f3f3f3;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+}
+/* 图标 */
+.icon-xxs{
+  width: 21px;
+  height: 21px;
+}
+.icon-xs{
+  width: 23px;
+  height: 23px;
+}
+.icon-s{
+  width: 25px;
+  height: 25px;
+}
+.icon-m{
+  width: 27px;
+  height: 27px;
+}
+/* 文字 */
+.text-s{
+  font-size: 26rpx;
+  color: grey;
+}
+.text-m{
+  font-size: 32rpx;
+  color: grey;
+  font-weight: bold;
+}
+.text-l{
+  font-weight: bold;
+}
+/* 按钮 */
+button {
+  background: initial;
+}
+button:focus{
+  outline: 0;
+}
+button::after{
+  border: none;
+}
