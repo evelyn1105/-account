@@ -1,0 +1,19 @@
+<!--components/keyBoard/keyBoard.wxml-->
+<view class="keyBoard-wrapper">
+  <view class="num-key-wrapper">
+    <view class="btn-wrapper">
+      <view class="cancel-btn">清零</view>
+      <view class="ensure-btn">确定</view>
+    </view>
+    <view class="line" wx:for="{{num}}">
+      <view class="num-key" wx:for="{{item.n}}">{{item}}</view>
+    </view>
+    <view class="line">
+      <view class="num-key" style="font-weight: bold">.</view>
+      <view class="num-key">0</view>
+      <view class="num-key" style="background: #f3f3f3">
+        <image src="../../images/delete.png" class="delete-icon"></image>
+      </view>
+    </view>
+  </view>
+</view>

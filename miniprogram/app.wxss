@@ -7,22 +7,30 @@ page {
 }
 /* 图标 */
 .icon-xxs{
-  width: 21px;
-  height: 21px;
+  width: 50rpx;
+  height: 50rpx;
 }
 .icon-xs{
-  width: 23px;
-  height: 23px;
+  width: 55rpx;
+  height: 55rpx;
 }
 .icon-s{
-  width: 25px;
-  height: 25px;
+  width: 60rpx;
+  height: 60rpx;
 }
 .icon-m{
-  width: 27px;
-  height: 27px;
+  width: 65rpx;
+  height: 65rpx;
+}
+.icon-l{
+  width: 70rpx;
+  height: 70rpx;
 }
 /* 文字 */
+.text-xs{
+  font-size: 23rpx;
+  color: grey;
+}
 .text-s{
   font-size: 26rpx;
   color: grey;

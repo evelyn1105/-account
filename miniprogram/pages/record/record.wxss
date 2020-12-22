@@ -1,1 +1,74 @@
 /* pages/record/record.wxss */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel-icon{
+  position: absolute;
+  left: 10px;
+}
+.text-sel {
+  color: black;
+}
+.detail-cpn{
+  margin: 10rpx 15rpx;
+  padding: 0 15rpx;
+  background: white;
+  border-radius: 5px;
+}
+.cpn-body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.text-wrapper{
+  display: flex;
+  align-items: center;
+}
+.grid-view{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.view-block{
+  padding: 10rpx 20rpx;
+  margin: 10rpx 5rpx;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container1 {
+  margin-top: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  background-color: rgb(224, 118, 118)
+}
+.container2 {
+  margin-top: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  background-color: wheat
+}

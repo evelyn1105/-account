@@ -24,6 +24,7 @@ Page({
     const iphoneSys = wx.getSystemInfoSync().system
     const reg = /^(iOS)\s{1}[A-Za-z0-9\.]*/
     app.globalData.blockHeight = wx.getMenuButtonBoundingClientRect().height + 'px' 
+    app.globalData.windowHeight = wx.getSystemInfoSync().windowWidth
     // console.log(reg.test(iphoneSys))
     let titleHeight
     if(reg.test(iphoneSys) == true){

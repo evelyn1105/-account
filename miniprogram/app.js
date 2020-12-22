@@ -11,7 +11,8 @@ App({
 
     this.globalData = {
       marginTop: '26px 10px 0',
-      blockHeight: '32px'
+      blockHeight: '32px',
+      windowWidth: ''
     }
   }
 })

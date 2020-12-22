@@ -1,0 +1,61 @@
+/* components/keyBoard/keyBoard.wxss */
+.keyBoard-wrapper{
+  border-top: 1px solid grey;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 20rpx;
+}
+.num-key-wrapper{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 25rpx;
+}
+.btn-wrapper{
+  display: flex;
+  width: 100%;
+  font-size: 35rpx;
+  line-height: 48rpx;
+  margin-top: 20rpx;
+}
+.cancel-btn{
+  padding: 20rpx 0 ;
+  width: 33%;
+  text-align: center;
+  border-radius: 5px;
+  color: gray;
+  background-color: white;
+}
+.ensure-btn{
+  padding: 20rpx 0;
+  width: 66%;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(170, 170, 245);
+  margin-left: 20rpx;
+}
+.line{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.num-key{
+  margin-top: 20rpx;
+  text-align: center;
+  padding: 20rpx 100rpx;
+  background-color: white;
+  font-size: 35rpx;
+  line-height: 48rpx;
+  width: 15rpx;
+  border-radius: 5px;
+}
+
+.delete-icon{
+  position: absolute;
+  right: 15%;
+  bottom: 5%;
+  width: 70rpx;
+  height: 70rpx;
+}

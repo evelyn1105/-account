@@ -1,2 +1,51 @@
 <!--pages/record/record.wxml-->
-<text>pages/record/record.wxml</text>
+<view style="margin: {{marginTop}}; height: {{blockHeight}}" class="wrapper top">
+  <image src="../../images/cancel.png" class="icon-m cancel-icon"></image>
+  <view class="wrapper text-m">
+    <view class="{{kind == 0 ? 'text-sel' : ''}}">支 出</view>
+    <view style="margin-left: 25rpx" class="{{kind == 1 ? 'text-sel' : ''}}">收 入</view>
+  </view>
+</view>
+<view class="detail-cpn" wx:if="{{kind == 0}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani1}}">
+  <view class="cpn-body">
+    <view class="text-wrapper">
+      <image src='{{outcomeType[selType].sImage}}' class="icon-s" style="margin: 10rpx 10rpx 10rpx 0"></image>
+      <view class="text-m" style="margin-left:10rpx">{{outcomeType[selType].typename}}</view>
+    </view>
+    <view class="money text-m">100</view>
+  </view>
+  <view class="cpn-body">
+    <view class="text-s" style="font-size: 30rpx;">添加备注</view>
+    <view class="text-s" style="font-size: 30rpx;">{{timeFormat}}</view>
+  </view>
+  <view class="grid-view">
+    <view class="view-block" wx:for="{{outcomeType}}" wx:key="index" data-idx="{{index}}" bindtap="SeleceAccountType">
+      <view style="width: 85rpx"><image src="{{index == selType ? item.sImage : item.image}}" class="icon-m"></image><view class="text-xs">{{item.typename}}</view></view>
+    </view>
+    <view class="view-block">
+      <view style="width: 85rpx"></view>
+    </view>
+    <view class="view-block">
+      <view style="width: 85rpx"></view>
+    </view>
+  </view>
+</view>
+<view class="detail-cpn" wx:if="{{kind == 1}}"  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani2}}">
+  <view class="cpn-body">
+    <view class="text-wrapper">
+      <image src='{{incomeType[selType].sImage}}' class="icon-s" style="margin: 10rpx 10rpx 10rpx 0"></image>
+      <view class="text-m" style="margin-left:10rpx">{{incomeType[selType].typename}}</view>
+    </view>
+    <view class="money text-m">100</view>
+  </view>
+  <view class="cpn-body">
+    <view class="text-s" style="font-size: 30rpx;">添加备注</view>
+    <view class="text-s" style="font-size: 30rpx;">2020-12-20 20:20</view>
+  </view>
+  <view class="grid-view">
+    <view class="view-block" wx:for="{{incomeType}}" wx:key="index" data-idx="{{index}}" bindtap="SeleceAccountType">
+      <view style="width: 85rpx"><image src="{{index == selType ? item.sImage : item.image}}" class="icon-m"></image><view class="text-xs">{{item.typename}}</view></view>
+    </view>
+  </view>
+</view>
+<keyBoard></keyBoard>

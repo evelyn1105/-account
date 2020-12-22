@@ -66,6 +66,13 @@
 					"id": -1,
 					"name": "pages/record/record",
 					"pathName": "pages/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/keyBoard/keyBoard",
+					"pathName": "components/keyBoard/keyBoard",
 					"scene": null
 				}
 			]
