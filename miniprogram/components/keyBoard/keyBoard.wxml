@@ -2,17 +2,17 @@
 <view class="keyBoard-wrapper">
   <view class="num-key-wrapper">
     <view class="btn-wrapper">
-      <view class="cancel-btn">清零</view>
-      <view class="ensure-btn">确定</view>
+      <view class="cancel-btn" bindtap="_clickKey" data-key="clear">清零</view>
+      <view class="ensure-btn" bindtap="_clickKey" data-key="ensure">确定</view>
     </view>
-    <view class="line" wx:for="{{num}}">
-      <view class="num-key" wx:for="{{item.n}}">{{item}}</view>
+    <view class="line" wx:for="{{num}}" wx:key="index">
+      <view class="num-key" wx:for="{{item.n}}" data-key="{{item}}" bindtap="_clickKey" wx:key="item">{{item}}</view>
     </view>
     <view class="line">
-      <view class="num-key" style="font-weight: bold">.</view>
-      <view class="num-key">0</view>
+      <view class="num-key" style="font-weight: bold" data-key="." bindtap="_clickKey">.</view>
+      <view class="num-key" data-key="0" bindtap="_clickKey">0</view>
       <view class="num-key" style="background: #f3f3f3">
-        <image src="../../images/delete.png" class="delete-icon"></image>
+        <image src="../../images/delete.png" class="delete-icon" data-key="del" bindtap="_clickKey"></image>
       </view>
     </view>
   </view>

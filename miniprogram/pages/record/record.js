@@ -11,17 +11,27 @@ Page({
     marginTop: '',
     blockHeight: '',
     kind : 0,
+    ani0: '',
     ani1: '',
-    ani2: '',
     timeFormat: '',
     incomeType: '',
     outcomeType: '',
-    selType: 0
+    selType: 0,
+    money: '',
+    keyBoard: ''
   },
   onLoad: function (options) {
     this.initHeight()
     this.initData()
     this.initPage()
+    this.setData({
+      keyBoard: this.selectComponent('#keyBoard')
+    })
+  },
+  getMoney: function (e) {
+    this.setData({
+      money: e.detail.money
+    })
   },
   onShow: function () {
   },
@@ -62,22 +72,19 @@ Page({
   },
   getNowTime: function () {
     const year = initTime.getYear()
-    const month = initTime.getMonth()
-    const day = initTime.getDay()
+    let month = initTime.getMonth()
+    let day = initTime.getDay()
     let hour = initTime.getHour()
     let min = initTime.getMin()
-    if(hour < 10) {
-      hour = '0' + hour
-    }
-    if(min < 10) {
-      min = '0' + min
-    }
+    month = initTime.setFormatTime(month)
+    day = initTime.setFormatTime(day)
+    hour = initTime.setFormatTime(hour)
+    min = initTime.setFormatTime(min)
     this.setData({
       timeFormat: year + '-' + month + '-' + day + " " + hour + ":" + min
     })
   },
-  SeleceAccountType: function (e) {
-    console.log(e.currentTarget.dataset.idx)
+  seleceAccountType: function (e) {
     this.setData({
       selType: e.currentTarget.dataset.idx
     })
@@ -92,32 +99,27 @@ Page({
     endX = e.touches[0].pageX // 获取触摸时的原点
     if (moveFlag) {
       if (endX - startX > 60) {
-        console.log("move right")
-        this.move2right()
+        if (this.data.kind == 1) {
+          console.log("move right")
+          this.move2right()
+        }
         moveFlag = false
       }
       if (startX - endX > 60) {
-        console.log("move left")
-        this.move2left()
+        if (this.data.kind == 0) {
+          console.log("move left")
+          this.move2left()
+        }
         moveFlag = false
       }
     }
   },
   // 触摸结束事件
   touchEnd: function (e) {
-    moveFlag = true // 回复滑动事件
-    // setTimeout(() => {
-    //   this.setData({
-    //     selType: 0
-    //   })
-    // }, 700)
+    moveFlag = false// 回复滑动事件
   },
   //向左滑动操作
   move2left() {
-    const that = this;
-    if (this.data.kind == 1) {
-      return
-    }
     const animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'ease',
@@ -125,22 +127,23 @@ Page({
     });
     animation.opacity(0.2).translate(-500, 0).step()
     this.setData({
-      ani1: animation.export()
+      ani0: animation.export()
     })
-    setTimeout(function () {
-      that.setData({
+    setTimeout(() => {
+      this.setData({
         kind: 1,
-        ani2: '',
-        selType: 0
-      });
+        ani1: '',
+        selType: 0,
+        money: ''
+      })
+      this.data.keyBoard.setData({
+        money: '',
+        flag: false
+      })
     }, 700)
   },
   //向右滑动操作
   move2right() {
-    const that = this;
-    if (this.data.kind == 0) {
-      return
-    }
     const animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'linear',
@@ -148,14 +151,19 @@ Page({
     });
     animation.opacity(0.2).translate(500, 0).step()
     this.setData({
-      ani2: animation.export() 
+      ani1: animation.export() 
     })
-    setTimeout(function () {
-      that.setData({
+    setTimeout(() => {
+      this.setData({
         kind: 0,
-        ani1: '',
-        selType: 0
-      });
+        ani0: '',
+        selType: 0,
+        money: ''
+      })
+      this.data.keyBoard.setData({
+        money: '',
+        flag: false
+      })
     }, 700)
   }
 })
