@@ -20,7 +20,6 @@ Component({
           })
           break
         case 'ensure':
-          console.log('ensure')
           break
         case 'del':
           if(this.data.money.slice(this.data.money.length -1) == '.'){
@@ -47,6 +46,6 @@ Component({
           break
       }
       this.triggerEvent("_getMoney", {money: this.data.money})
-    }
+    },
   }
 })

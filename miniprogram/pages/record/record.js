@@ -1,6 +1,7 @@
 // pages/record/record.js
 const initTime = require('../../utils/initTime')
 const db = require('../../utils/db')
+const util = require('../../utils/util')
 const app = getApp()
 
 let startX, endX;
@@ -8,6 +9,8 @@ let moveFlag = false;
 
 Page({
   data: {
+    prePage: '',
+    shadeFlag: false,
     marginTop: '',
     blockHeight: '',
     kind : 0,
@@ -18,15 +21,18 @@ Page({
     outcomeType: '',
     selType: 0,
     money: '',
-    keyBoard: ''
+    keyBoard: '',
+    beizhu: '',
+    beizhuMsg: '添加备注'
   },
   onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      prePage: options.pre
+    })
     this.initHeight()
     this.initData()
     this.initPage()
-    this.setData({
-      keyBoard: this.selectComponent('#keyBoard')
-    })
   },
   getMoney: function (e) {
     this.setData({
@@ -42,6 +48,9 @@ Page({
     })
   },
   initData: function () {
+    wx.showLoading({
+      title: 'Loading',
+    })
     db.getAccountTypeList(0).then(res => {
       const outcomeType = res.data
       const remain = outcomeType.length % 5
@@ -65,10 +74,15 @@ Page({
       this.setData({
         incomeType: incomeType
       })
+      wx.hideLoading()
     })
   },
   initPage: function () {
     this.getNowTime()
+    this.setData({
+      keyBoard: this.selectComponent('#keyBoard'),
+      beizhu: this.selectComponent('#beizhu')
+    })
   },
   getNowTime: function () {
     const year = initTime.getYear()
@@ -88,6 +102,36 @@ Page({
     this.setData({
       selType: e.currentTarget.dataset.idx
     })
+  },
+  showBeizhuDialog: function () {
+    this.setData({
+      shadeFlag: !this.data.shadeFlag
+    })
+    this.data.beizhu.toggleBeizhuDialog()
+  },
+  cancelBeizhu: function () {
+    this.setData({
+      shadeFlag: !this.data.shadeFlag
+    })
+    this.data.beizhu.toggleBeizhuDialog()
+  },
+  getBeizhuMsg: function (e) {
+    const beizhuMsg = e.detail.beizhu
+    // console.log(beizhuMsg.length)
+    if(beizhuMsg.length == 0){
+      this.setData({
+        beizhuMsg: '添加备注',
+      })
+    }
+    else {
+      this.setData({
+        beizhuMsg: beizhuMsg,
+      })
+    }
+    this.cancelBeizhu()
+  },
+  backToPre: function () {
+    util.backToPre(this.data.prePage)
   },
   // 开始触摸
   touchStart: function (e) {

@@ -10,7 +10,7 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
-		"nodeModules": false,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -33,6 +33,7 @@
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -73,6 +74,13 @@
 					"id": -1,
 					"name": "components/keyBoard/keyBoard",
 					"pathName": "components/keyBoard/keyBoard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "components/BeiZhuDialog/BeiZhuDialog",
+					"pathName": "components/BeiZhuDialog/BeiZhuDialog",
 					"scene": null
 				}
 			]

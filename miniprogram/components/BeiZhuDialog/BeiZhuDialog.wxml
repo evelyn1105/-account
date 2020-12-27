@@ -1,0 +1,13 @@
+<!--components/BeiZhuDialog.wxml-->
+<view class="wrapper" hidden="{{showFlag}}">
+  <view class="beizhu-wrapper">
+    <view class="text-l">添加备注</view>
+    <form bindsubmit="submitBeizhu">
+        <input focus="true" class="input-type" style="width: {{inputWidth}}" maxlength="20" name="beizhu"></input>
+        <view class="btn-wrapper">
+          <button class="btn" style="margin: 0 20rpx; background-color: rgba(0, 0, 0, 0.1); color: black" bindtap="cancelBeizhuDialog">取 消</button>
+          <button class="btn" style="margin: 0 20rpx; background-color: rgb(208, 208, 247); color: white" form-type="submit">确 定</button>
+        </view>
+      </form>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+/* components/BeiZhuDialog.wxss */
+.wrapper{
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+}
+.beizhu-wrapper{
+  padding: 15rpx 20rpx 30rpx;
+}
+.btn-wrapper{
+  display: flex;
+  padding: 0 30rpx;
+  color: red;
+}
+.input-type {
+  margin: 15rpx 0rpx;
+  width: 100%;
+  font-size: 35rpx;
+  height: 55rpx;
+  line-height: 50rpx;
+  color: rgba(0, 0, 0, 0.6);
+}

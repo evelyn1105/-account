@@ -14,7 +14,7 @@ Page({
   },
   pageJump: function (e) {
     const name = e.currentTarget.id
-    const url = '../' + name + '/' + name
+    const url = '../' + name + '/' + name + '?pre=index'
     wx.navigateTo({
       url: url,
     })

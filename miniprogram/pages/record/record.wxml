@@ -1,6 +1,7 @@
 <!--pages/record/record.wxml-->
-<view style="margin: {{marginTop}}; height: {{blockHeight}}" class="wrapper top">
-  <image src="../../images/cancel.png" class="icon-m cancel-icon"></image>
+<view class="shade" wx:if="{{shadeFlag}}"></view>
+<view style="padding: {{marginTop}}; height: {{blockHeight}}" class="wrapper top">
+  <image src="../../images/cancel.png" class="icon-m cancel-icon" bindtap="backToPre"></image>
   <view class="wrapper text-m">
     <view class="{{kind == 0 ? 'text-sel' : ''}}">支 出</view>
     <view style="margin-left: 25rpx" class="{{kind == 1 ? 'text-sel' : ''}}">收 入</view>
@@ -15,12 +16,12 @@
     <view class="money text-m">{{money}}￥</view>
   </view>
   <view class="cpn-body">
-    <view class="text-s" style="font-size: 30rpx;">添加备注</view>
+    <view class="text-s" style="font-size: 30rpx;" bindtap="showBeizhuDialog">{{beizhuMsg}}</view>
     <view class="text-s" style="font-size: 30rpx;">{{timeFormat}}</view>
   </view>
   <view class="grid-view">
     <view class="view-block" wx:for="{{outcomeType}}" wx:key="index" data-idx="{{index}}" bindtap="seleceAccountType">
-      <view style="width: 85rpx"><image src="{{index == selType ? item.sImage : item.image}}" class="icon-m"></image><view class="text-xs">{{item.typename}}</view></view>
+      <view style="width: 90rpx"><image src="{{index == selType ? item.sImage : item.image}}" class="icon-m"></image><view class="text-xs">{{item.typename}}</view></view>
     </view>
     <view class="view-block">
       <view style="width: 85rpx"></view>
@@ -39,13 +40,14 @@
     <view class="money text-m">{{money}}￥</view>
   </view>
   <view class="cpn-body">
-    <view class="text-s" style="font-size: 30rpx;">添加备注</view>
+    <view class="text-s" style="font-size: 30rpx;" bindtap="showBeizhuDialog">{{beizhuMsg}}</view>
     <view class="text-s" style="font-size: 30rpx;">{{timeFormat}}</view>
   </view>
   <view class="grid-view">
     <view class="view-block" wx:for="{{incomeType}}" wx:key="index" data-idx="{{index}}" bindtap="seleceAccountType">
-      <view style="width: 85rpx"><image src="{{index == selType ? item.sImage : item.image}}" class="icon-m"></image><view class="text-xs">{{item.typename}}</view></view>
+      <view style="width: 90rpx"><image src="{{index == selType ? item.sImage : item.image}}" class="icon-m"></image><view class="text-xs">{{item.typename}}</view></view>
     </view>
   </view>
 </view>
-<keyBoard id="keyBoard" bind:_getMoney="getMoney"></keyBoard>
+<keyBoard id="keyBoard" bind:_getMoney="getMoney" wx:if="{{!shadeFlag}}"></keyBoard>
+<beizhu id="beizhu" bind:_getBeizhu="getBeizhuMsg" bind:_cancel="cancelBeizhu"></beizhu>

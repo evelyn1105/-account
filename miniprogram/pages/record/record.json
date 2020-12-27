@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "keyBoard": "/components/keyBoard/keyBoard"
+    "keyBoard": "/components/keyBoard/keyBoard",
+    "beizhu": "/components/BeiZhuDialog/BeiZhuDialog"
   }
 }

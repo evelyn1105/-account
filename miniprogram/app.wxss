@@ -5,6 +5,14 @@ page {
   flex-direction: column;
   justify-content: flex-start; */
 }
+.shade {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.2;
+  z-index: 1;
+  position: fixed;
+}
 /* 图标 */
 .icon-xxs{
   width: 50rpx;
